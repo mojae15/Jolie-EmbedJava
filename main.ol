@@ -1,5 +1,6 @@
 include "console.iol"
 include "string_utils.iol"
+include "queue_utils.iol"
 
 type Split_request: void{
 	.s: string
@@ -29,7 +30,19 @@ main{
 
 	split@Func( {.s = "Hej med Dig", .reg = " "})(res);
 
+
 	valueToPrettyString@StringUtils(res)(s);
-	println@Console(s)()
+	//size@QueueUtils(res.s_array)(test);
+
+	print@Console("[")();
+
+	for(i = 0, i < #res.s_array-1, i++){
+		print@Console("\""+ res.s_array[i]+"\", ")()
+	};
+
+	println@Console("\""+ res.s_array[#res.s_array-1]+"\"]")()
+
+
+	
 
 }
