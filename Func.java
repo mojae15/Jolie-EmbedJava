@@ -1,8 +1,14 @@
 import jolie.runtime.JavaService;
 import jolie.runtime.Value;
 
+
 public class Func extends JavaService{
 
+    /**
+     * Splits a string into an array
+     * @param request
+     * @return
+     */
     public Value split(Value request){
         String s = request.getFirstChild("s").strValue();
         String reg = request.getFirstChild("reg").strValue();
