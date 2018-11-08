@@ -13,5 +13,7 @@ WORKDIR /Jolie-EmbedJava
 #Compile .java files to .jar files
 CMD ["./compile.sh"]
 
+ENV stringToSplit string
+
 #Run Jolie program
-CMD ["jolie", "main.ol"]
+CMD ["jolie", "main.ol","-c","stringToSplit=${stringToSplit}"]

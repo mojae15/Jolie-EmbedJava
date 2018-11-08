@@ -24,11 +24,17 @@ embedded {
 	Java: "Func" in Func
 }
 
-
+constants {
+	stringToSplit = "Hej med dig",
+	regex = " "
+}
 
 main{
 
-	split@Func( {.s = "Hej med Dig", .reg = " "})(res);
+	request.s = stringToSplit;
+	request.reg = regex;
+
+	split@Func( request )( res );
 
 
 	valueToPrettyString@StringUtils(res)(s);
