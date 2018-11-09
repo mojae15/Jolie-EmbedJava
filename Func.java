@@ -1,6 +1,5 @@
 import jolie.runtime.JavaService;
 import jolie.runtime.Value;
-import java.util.Scanner;
 
 
 public class Func extends JavaService{
@@ -11,23 +10,9 @@ public class Func extends JavaService{
      * @return
      */
     public Value split(Value request){
-        java.util.Scanner input = new Scanner(System.in);
-        String s = "";
-        String reg = "";
-
-        // String s = request.getFirstChild("s").strValue();
-        // String reg = request.getFirstChild("reg").strValue();
-
-        System.out.println("Specify string to be split");
+        String s = request.getFirstChild("s").strValue();
+        String reg = request.getFirstChild("reg").strValue();
         
-
-        s = input.nextLine();
-
-        System.out.println("Specify regex");
-
-        reg = input.nextLine();
-
-
         String[] res = s.split(reg);
 
         Value s_res = Value.create();
