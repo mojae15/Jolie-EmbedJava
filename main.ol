@@ -13,7 +13,7 @@ type Split_res: void{
 }
 
 interface FuncInterface{
-	RequestResponse: split(void)(Split_res)
+	RequestResponse: split(Split_request)(Split_res)
 }
 
 outputPort Func{
@@ -24,10 +24,17 @@ embedded {
 	Java: "Func" in Func
 }
 
+constants {
+	stringToSplit = "Hej med dig",
+	regex = " "
+}
+
 main{
 
+	request.s = stringToSplit;
+	request.reg = regex;
 
-	split@Func( )( res );
+	split@Func( request )( res );
 
 
 	valueToPrettyString@StringUtils(res)(s);
